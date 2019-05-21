@@ -1,0 +1,18 @@
+operational parameters: model name, #parameters, #sessions, #iterations:
+rosenbrock
+10
+10
+200
+lower and upper bounds (box constraints) for parameters:
+0.1 0.3
+0.1 0.3
+0.1 0.3
+0.1 0.3
+0.1 0.3
+0.1 0.3
+0.1 0.3
+0.1 0.3
+0.1 0.3
+0.1 0.3
+iteration log: iteration, objective value, termination flag:
+0 0 0

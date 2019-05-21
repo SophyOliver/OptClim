@@ -1,0 +1,23 @@
+operational parameters: model name, #parameters, #sessions, #iterations, random number seed (integer, 0=default), attractor flag (0=default=use no attractor):
+cmaes_mops_twin_6param
+6
+10
+30
+0
+0
+lower and upper bounds (box constraints) for parameters:
+150.000000000000000 200.000000000000000
+4.000000000000000 48.000000000000000
+0.000100000000000 0.500000000000000
+0.100000000000000 4.000000000000000
+0.000000000000000 10.000000000000000
+0.400000000000000 1.800000000000000
+optional attractor:
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+0.000000000000000
+iteration log: iteration, objective value, termination flag:
+0 0 0
