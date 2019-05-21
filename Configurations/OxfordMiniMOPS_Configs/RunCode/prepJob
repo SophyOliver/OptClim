@@ -1,0 +1,3 @@
+
+cp -p $OPTCLIMTOP/Configurations/OxfordMiniMOPS_Configs/NoNoise/ReadOnlyFiles/Code/* .
+ln -s $OPTCLIMTOP/Configurations/OxfordMiniMOPS_Configs/NoNoise/ReadOnlyFiles/Files/* .
