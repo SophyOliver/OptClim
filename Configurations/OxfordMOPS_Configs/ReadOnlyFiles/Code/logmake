@@ -1,0 +1,947 @@
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpicc -o tmm_main.o -c -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -O   -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS `pwd`/tmm_main.c
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_main.c: In function ‘main’:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_main.c:131:13: warning: variable ‘constantBC’ set but not used [-Wunused-but-set-variable]
+   PetscBool constantBC = PETSC_FALSE;
+             ^~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_main.c:128:13: warning: variable ‘constantForcing’ set but not used [-Wunused-but-set-variable]
+   PetscBool constantForcing = PETSC_FALSE;
+             ^~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_main.c:1398:7: warning: ‘tc’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+  ierr = finalizeMonitor(tc,maxSteps,numTracers);CHKERRQ(ierr);
+  ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_main.c:1067:16: warning: ‘bctd’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+           ierr = interpTimeDependentVector(tf,bcf,numTracers,numBC,tdbcT,bctd);CHKERRQ(ierr);
+           ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_main.c:1025:8: warning: ‘utdf’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+   ierr = interpTimeDependentVector(tc,uf,numTracers,numForcing,tdfT,utdf);CHKERRQ(ierr);
+   ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_main.c:918:12: warning: ‘AVG_FILE_MODE’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+       ierr = PetscViewerBinaryOpen(PETSC_COMM_WORLD,avgOutFile[itr],AVG_FILE_MODE,&fdavgout[itr]);CHKERRQ(ierr);
+       ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpicc -o tmm_forward_step.o -c -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -O   -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS `pwd`/tmm_forward_step.c
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpicc -o tmm_forcing_utils.o -c -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -O   -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS `pwd`/tmm_forcing_utils.c
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpicc -o petsc_matvec_utils.o -c -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -O   -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS `pwd`/petsc_matvec_utils.c
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpicc -o petsc_signal_utils.o -c -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -O   -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS `pwd`/petsc_signal_utils.c
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpicc -o external_forcing_mops_biogeochem.o -c -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -O   -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS `pwd`/external_forcing_mops_biogeochem.c
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:23:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/mops_biogeochem_misfit_data.h:25:19: warning: ‘nTracersObs’ initialized and declared ‘extern’
+ ISEXTERN PetscInt nTracersObs = 3;
+                   ^~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c: In function ‘iniExternalForcing’:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:273:39: warning: passing argument 1 of ‘readProfileSurfaceScalarData’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   ierr = readProfileSurfaceScalarData("dA.bin",localdA,1);
+                                       ^~~~~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:18:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.h:3:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode readProfileSurfaceScalarData(char *fileName, PetscScalar *arr, PetscInt numValsPerProfile);
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /Users/orie3677/Software/petsc-3.6.2/include/petscsys.h:1796:0,
+                 from /Users/orie3677/Software/petsc-3.6.2/include/petscis.h:7,
+                 from /Users/orie3677/Software/petsc-3.6.2/include/petscvec.h:9,
+                 from /Users/orie3677/Software/petsc-3.6.2/include/petscmat.h:6,
+                 from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:14:
+/Users/orie3677/Software/petsc-3.6.2/include/petsclog.h:374:57: warning: value computed is not used [-Wunused-value]
+   ((petsc_allreduce_ct += PetscMPIParallelComm(comm),0) || MPI_Allreduce(sendbuf,recvbuf,count,datatype,op,comm))
+                                                         ^
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:278:3: note: in expansion of macro ‘MPI_Allreduce’
+   MPI_Allreduce(&localA, &totalA, 1, MPI_DOUBLE, MPI_SUM, PETSC_COMM_WORLD); /* global surface area */
+   ^~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:497:39: warning: passing argument 1 of ‘readProfileSurfaceScalarData’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   ierr = readProfileSurfaceScalarData("latitude.bin",locallatitude,1);
+                                       ^~~~~~~~~~~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:18:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.h:3:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode readProfileSurfaceScalarData(char *fileName, PetscScalar *arr, PetscInt numValsPerProfile);
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:505:41: warning: passing argument 1 of ‘readProfileSurfaceScalarData’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+     ierr = readProfileSurfaceScalarData("fice.bin",localfice,1);
+                                         ^~~~~~~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:18:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.h:3:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode readProfileSurfaceScalarData(char *fileName, PetscScalar *arr, PetscInt numValsPerProfile);
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:513:41: warning: passing argument 1 of ‘readProfileSurfaceScalarData’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+     ierr = readProfileSurfaceScalarData("wind.bin",localwind,1);
+                                         ^~~~~~~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:18:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.h:3:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode readProfileSurfaceScalarData(char *fileName, PetscScalar *arr, PetscInt numValsPerProfile);
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:521:41: warning: passing argument 1 of ‘readProfileSurfaceScalarData’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+     ierr = readProfileSurfaceScalarData("atmosp.bin",localatmosp,1);
+                                         ^~~~~~~~~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:18:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.h:3:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode readProfileSurfaceScalarData(char *fileName, PetscScalar *arr, PetscInt numValsPerProfile);
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:528:119: warning: passing argument 7 of ‘interpPeriodicVector’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  ierr = interpPeriodicVector(tc,&Ts,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&Tsp,"Ts_");
+                                                                                                                       ^~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:17:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_forcing_utils.h:27:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicVector(PetscScalar tc, Vec *u, PetscScalar cyclePeriod, PetscInt numPerPeriod,
+                       ^~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:529:119: warning: passing argument 7 of ‘interpPeriodicVector’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  ierr = interpPeriodicVector(tc,&Ss,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&Ssp,"Ss_");
+                                                                                                                       ^~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:17:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_forcing_utils.h:27:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicVector(PetscScalar tc, Vec *u, PetscScalar cyclePeriod, PetscInt numPerPeriod,
+                       ^~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:535:153: warning: passing argument 7 of ‘interpPeriodicProfileSurfaceScalarData’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+     ierr = interpPeriodicProfileSurfaceScalarData(tc,localfice,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&localficep,"fice_");
+                                                                                                                                                         ^~~~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:18:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.h:6:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicProfileSurfaceScalarData(PetscScalar tc, PetscScalar *uarr, PetscScalar cyclePeriod,
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:536:153: warning: passing argument 7 of ‘interpPeriodicProfileSurfaceScalarData’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+     ierr = interpPeriodicProfileSurfaceScalarData(tc,localwind,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&localwindp,"wind_");
+                                                                                                                                                         ^~~~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:18:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.h:6:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicProfileSurfaceScalarData(PetscScalar tc, PetscScalar *uarr, PetscScalar cyclePeriod,
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:537:157: warning: passing argument 7 of ‘interpPeriodicProfileSurfaceScalarData’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+     ierr = interpPeriodicProfileSurfaceScalarData(tc,localatmosp,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&localatmospp,"atmosp_");
+                                                                                                                                                             ^~~~~~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:18:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.h:6:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicProfileSurfaceScalarData(PetscScalar tc, PetscScalar *uarr, PetscScalar cyclePeriod,
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:170:12: warning: unused variable ‘it’ [-Wunused-variable]
+   PetscInt it,ipar;
+            ^~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c: In function ‘calcExternalForcing’:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:721:119: warning: passing argument 7 of ‘interpPeriodicVector’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  ierr = interpPeriodicVector(tc,&Ts,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&Tsp,"Ts_");
+                                                                                                                       ^~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:17:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_forcing_utils.h:27:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicVector(PetscScalar tc, Vec *u, PetscScalar cyclePeriod, PetscInt numPerPeriod,
+                       ^~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:722:119: warning: passing argument 7 of ‘interpPeriodicVector’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  ierr = interpPeriodicVector(tc,&Ss,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&Ssp,"Ss_");
+                                                                                                                       ^~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:17:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_forcing_utils.h:27:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicVector(PetscScalar tc, Vec *u, PetscScalar cyclePeriod, PetscInt numPerPeriod,
+                       ^~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:728:153: warning: passing argument 7 of ‘interpPeriodicProfileSurfaceScalarData’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+     ierr = interpPeriodicProfileSurfaceScalarData(tc,localfice,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&localficep,"fice_");
+                                                                                                                                                         ^~~~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:18:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.h:6:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicProfileSurfaceScalarData(PetscScalar tc, PetscScalar *uarr, PetscScalar cyclePeriod,
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:729:153: warning: passing argument 7 of ‘interpPeriodicProfileSurfaceScalarData’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+     ierr = interpPeriodicProfileSurfaceScalarData(tc,localwind,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&localwindp,"wind_");
+                                                                                                                                                         ^~~~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:18:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.h:6:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicProfileSurfaceScalarData(PetscScalar tc, PetscScalar *uarr, PetscScalar cyclePeriod,
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:730:157: warning: passing argument 7 of ‘interpPeriodicProfileSurfaceScalarData’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+     ierr = interpPeriodicProfileSurfaceScalarData(tc,localatmosp,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&localatmospp,"atmosp_");
+                                                                                                                                                             ^~~~~~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:18:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.h:6:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicProfileSurfaceScalarData(PetscScalar tc, PetscScalar *uarr, PetscScalar cyclePeriod,
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /Users/orie3677/Software/petsc-3.6.2/include/petscsys.h:1796:0,
+                 from /Users/orie3677/Software/petsc-3.6.2/include/petscis.h:7,
+                 from /Users/orie3677/Software/petsc-3.6.2/include/petscvec.h:9,
+                 from /Users/orie3677/Software/petsc-3.6.2/include/petscmat.h:6,
+                 from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:14:
+/Users/orie3677/Software/petsc-3.6.2/include/petsclog.h:374:57: warning: value computed is not used [-Wunused-value]
+   ((petsc_allreduce_ct += PetscMPIParallelComm(comm),0) || MPI_Allreduce(sendbuf,recvbuf,count,datatype,op,comm))
+                                                         ^
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:852:7: note: in expansion of macro ‘MPI_Allreduce’
+       MPI_Allreduce(&localFburial, &Fburial, 1, MPI_DOUBLE, MPI_SUM, PETSC_COMM_WORLD);
+       ^~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c: In function ‘writeExternalForcing’:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:970:12: warning: unused variable ‘ip’ [-Wunused-variable]
+   PetscInt ip;
+            ^~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c: In function ‘reInitializeExternalForcing’:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:1191:119: warning: passing argument 7 of ‘interpPeriodicVector’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  ierr = interpPeriodicVector(tc,&Ts,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&Tsp,"Ts_");
+                                                                                                                       ^~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:17:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_forcing_utils.h:27:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicVector(PetscScalar tc, Vec *u, PetscScalar cyclePeriod, PetscInt numPerPeriod,
+                       ^~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:1192:119: warning: passing argument 7 of ‘interpPeriodicVector’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  ierr = interpPeriodicVector(tc,&Ss,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&Ssp,"Ss_");
+                                                                                                                       ^~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:17:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_forcing_utils.h:27:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicVector(PetscScalar tc, Vec *u, PetscScalar cyclePeriod, PetscInt numPerPeriod,
+                       ^~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:1198:153: warning: passing argument 7 of ‘interpPeriodicProfileSurfaceScalarData’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+     ierr = interpPeriodicProfileSurfaceScalarData(tc,localfice,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&localficep,"fice_");
+                                                                                                                                                         ^~~~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:18:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.h:6:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicProfileSurfaceScalarData(PetscScalar tc, PetscScalar *uarr, PetscScalar cyclePeriod,
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:1199:153: warning: passing argument 7 of ‘interpPeriodicProfileSurfaceScalarData’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+     ierr = interpPeriodicProfileSurfaceScalarData(tc,localwind,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&localwindp,"wind_");
+                                                                                                                                                         ^~~~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:18:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.h:6:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicProfileSurfaceScalarData(PetscScalar tc, PetscScalar *uarr, PetscScalar cyclePeriod,
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:1200:157: warning: passing argument 7 of ‘interpPeriodicProfileSurfaceScalarData’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+     ierr = interpPeriodicProfileSurfaceScalarData(tc,localatmosp,biogeochemTimer.cyclePeriod,biogeochemTimer.numPerPeriod,biogeochemTimer.tdp,&localatmospp,"atmosp_");
+                                                                                                                                                             ^~~~~~~~~
+In file included from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:18:0:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.h:6:23: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern PetscErrorCode interpPeriodicProfileSurfaceScalarData(PetscScalar tc, PetscScalar *uarr, PetscScalar cyclePeriod,
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:1185:12: warning: unused variable ‘fp’ [-Wunused-variable]
+   PetscInt fp;
+            ^~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/external_forcing_mops_biogeochem.c:1184:15: warning: unused variable ‘fd’ [-Wunused-variable]
+   PetscViewer fd;
+               ^~
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpicc -o tmm_external_bc.o -c -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -O   -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS `pwd`/tmm_external_bc.c
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_external_bc.c: In function ‘iniCalcBC’:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_external_bc.c:17:18: warning: unused variable ‘ierr’ [-Wunused-variable]
+   PetscErrorCode ierr;
+                  ^~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_external_bc.c: In function ‘calcBC’:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_external_bc.c:29:18: warning: unused variable ‘ierr’ [-Wunused-variable]
+   PetscErrorCode ierr;
+                  ^~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_external_bc.c: In function ‘writeBC’:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_external_bc.c:42:18: warning: unused variable ‘ierr’ [-Wunused-variable]
+   PetscErrorCode ierr;
+                  ^~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_external_bc.c: In function ‘finalizeCalcBC’:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_external_bc.c:54:18: warning: unused variable ‘ierr’ [-Wunused-variable]
+   PetscErrorCode ierr;
+                  ^~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_external_bc.c: In function ‘reInitializeCalcBC’:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_external_bc.c:66:18: warning: unused variable ‘ierr’ [-Wunused-variable]
+   PetscErrorCode ierr;
+                  ^~~~
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpicc -o tmm_monitor.o -c -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -O   -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS `pwd`/tmm_monitor.c
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_monitor.c: In function ‘updateMonitor’:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_monitor.c:49:18: warning: unused variable ‘ierr’ [-Wunused-variable]
+   PetscErrorCode ierr;
+                  ^~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_monitor.c: In function ‘writeMonitor’:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_monitor.c:65:18: warning: unused variable ‘ierr’ [-Wunused-variable]
+   PetscErrorCode ierr;
+                  ^~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_monitor.c: In function ‘finalizeMonitor’:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_monitor.c:80:18: warning: unused variable ‘ierr’ [-Wunused-variable]
+   PetscErrorCode ierr;
+                  ^~~~
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpicc -o misfit_mops_biogeochem.o -c -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -O   -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS `pwd`/misfit_mops_biogeochem.c
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpicc -o tmm_profile_utils.o -c -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -O   -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS `pwd`/tmm_profile_utils.c
+In file included from /Users/orie3677/Software/petsc-3.6.2/include/petscsys.h:1796:0,
+                 from /Users/orie3677/Software/petsc-3.6.2/include/petscis.h:7,
+                 from /Users/orie3677/Software/petsc-3.6.2/include/petscvec.h:9,
+                 from /Users/orie3677/Software/petsc-3.6.2/include/petscmat.h:6,
+                 from /Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.c:8:
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.c: In function ‘iniProfileData’:
+/Users/orie3677/Software/petsc-3.6.2/include/petsclog.h:383:53: warning: value computed is not used [-Wunused-value]
+  ((petsc_gather_ct += PetscMPIParallelComm(comm),0) || MPI_Allgather(sendbuf,sendcount,sendtype,recvbuf,recvcount,recvtype,comm))
+                                                     ^
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.c:69:3: note: in expansion of macro ‘MPI_Allgather’
+   MPI_Allgather(&lNumProfiles, 1, MPI_INT, gNumProfiles, 1, MPI_INT, PETSC_COMM_WORLD);
+   ^~~~~~~~~~~~~
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.c: In function ‘writeProfileSurfaceScalarData’:
+/Users/orie3677/Software/petsc-3.6.2/include/petsclog.h:392:81: warning: value computed is not used [-Wunused-value]
+  ((petsc_gather_ct++,0) || PetscMPITypeSize(&petsc_send_len,sendcount,sendtype) || MPI_Gatherv(sendbuf,sendcount,sendtype,recvbuf,recvcount,displs,recvtype,root,comm))
+                                                                                 ^
+/Users/orie3677/Documents/Uni/Project/Optimization/OptClim/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/tmm_profile_utils.c:346:3: note: in expansion of macro ‘MPI_Gatherv’
+   MPI_Gatherv(arr,numValsPerProfile*lNumProfiles,MPI_DOUBLE,tmpArr,rcounts,displs,MPI_DOUBLE,0, PETSC_COMM_WORLD);
+   ^~~~~~~~~~~
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpicc -o tmm_timer.o -c -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -O   -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS `pwd`/tmm_timer.c
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpif90 -c -fPIC  -Wall -Wno-unused-variable -ffree-line-length-0 -Wno-unused-dummy-argument -O  -fdefault-real-8 -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS -o BGC_MODEL.o BGC_MODEL.F
+BGC_MODEL.F:158:14:
+
+       vgas660=(0.337d0*bgc_wind**2)*0.24d0*(1.d0-bgc_seaice)
+              1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:649:15:
+
+       KWexch = vgas660/sqrt(SchmidtNoO2/660.0d0)
+               1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:654:13:
+
+       aTT  = 298.15d0 -ttemp
+             1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:655:13:
+
+       aTK  = 273.15d0 +ttemp
+             1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:667:14:
+
+       O2sat = o2s/22391.6d0 * 1.0d3*1.0d3
+              1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:238:14:
+
+       parfrac=0.4d0
+              1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_MODEL.F:239:13:
+
+       ciz(1)=bgc_swr*(1.0d0-bgc_seaice)*parfrac
+             1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:243:15:
+
+         attlim=MAX(0.0d0,bgc_tracer(k-1,iphy))
+               1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:258:14:
+
+        attlim=MAX(PHY,0.0d0)
+              1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:272:16:
+
+        glbygd = 2.0d0*ciz(k)/(TACik*bgc_tau)   ! 2 * G_L/G_D of EG97
+                1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:598:13:
+
+         phi= LOG(u+SQRT(1.0d0+u*u))-(SQRT(1.0d0+u*u)-1.0d0)/u
+             1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:345:20:
+
+          nfixtfac = MAX(0.0d0,tf2*ttemp*ttemp + tf1*ttemp + tf0)/tff
+                    1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:346:18:
+
+          dinlim = MAX(0.0d0,DIN)
+                  1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:347:20:
+
+          nfixnfac = MAX(0.0d0, 1.0d0-dinlim/(PO4*rnp))
+                    1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:363:18:
+
+         todop(k)= graztodop*(1.0d0-ACeff)*graz
+                  1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:369:19:
+
+         todet(k) = (1.0d0-graztodop)*(1.0d0-ACeff)*graz
+                   1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:381:16:
+
+           DET = MAX(bgc_tracer(k,idet)-alimit*alimit,0.0d0)
+                1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:392:14:
+
+         DET = MAX(bgc_tracer(bgc_kloc,idet)-alimit*alimit,0.0d0)
+              1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:394:17:
+
+         flux_l = MIN(1.0d0,burdige_fac*fDET**burdige_exp)*fDET
+                 1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:417:12:
+
+       DOP = MAX(bgc_tracer(k,idop)-alimit*alimit,0.0d0)
+            1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:418:12:
+
+       PHY = MAX(bgc_tracer(k,iphy)-alimit*alimit,0.0d0)
+            1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:419:12:
+
+       ZOO = MAX(bgc_tracer(k,izoo)-alimit*alimit,0.0d0)
+            1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:420:12:
+
+       DET = MAX(bgc_tracer(k,idet)-alimit*alimit,0.0d0)
+            1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:431:12:
+
+       OXY = MAX(bgc_tracer(k,ioxy)-subox,0.0d0)
+            1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:453:12:
+
+       DIN = MAX(bgc_tracer(k,idin)-subdin,0.0d0)
+            1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_MODEL.F:454:14:
+
+       dinmm = DIN*DIN/(DIN*DIN+ACkbacdin*ACkbacdin)*(1.0d0-oxymm)
+              1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpif90 -c -fPIC  -Wall -Wno-unused-variable -ffree-line-length-0 -Wno-unused-dummy-argument -O  -fdefault-real-8 -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS -o BGC_INI.o BGC_INI.F
+f951: Warning: Nonconforming tab character in column 1 of line 33 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 198 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 199 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 200 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 201 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 202 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 203 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 204 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 205 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 206 [-Wtabs]
+BGC_INI.F:64:15:
+
+         sox2 = -81.83d0
+               1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:65:15:
+
+         sox3 = 1.483d0
+               1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:66:15:
+
+         sox4 = -0.008004d0
+               1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:69:14:
+
+         oA0=  2.00907d0
+              1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:70:14:
+
+         oA1=  3.22014d0
+              1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:71:14:
+
+         oA2=  4.05010d0
+              1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:72:14:
+
+         oA3=  4.94457d0
+              1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:73:13:
+
+         oA4= -2.56847d-1
+             1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:74:14:
+
+         oA5=  3.88767d0
+              1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:75:13:
+
+         oB0= -6.24523d-3
+             1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:76:13:
+
+         oB1= -7.37614d-3
+             1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:77:13:
+
+         oB2= -1.03410d-2
+             1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:78:13:
+
+         oB3= -8.17083d-3
+             1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:79:13:
+
+         oC0= -4.88682d-7
+             1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:83:16:
+
+         vsafe = 1.0d-6
+                1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:104:16:
+
+      tf2 = -0.0042d0
+                1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:105:16:
+
+      tf1 = 0.2253d0
+                1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:106:16:
+
+      tf0 = -2.7819d0
+                1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:107:16:
+
+      tff = 0.2395d0
+                1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:108:17:
+
+      nfix = 2.0d-3 ![mmol N/m3/d]; if PO4>0 and DIN = 0 and T=26.82 this corresponds
+                 1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:115:16:
+
+         TempB = 15.65d0 !ref. temperature for T-dependent growth
+                1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:116:18:
+
+         ACmuphy = 0.6d0 !max. growth rate [1/day]
+                  1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:117:15:
+
+         ACik = 9.653d0 !Light half-saturation constant [W/m2]
+               1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:118:17:
+
+         ACkpo4 = 0.4995d0 !half-saturation constant for PO4 uptake [mmol P/m3]
+                 1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:119:18:
+
+         ACkchl  = 0.03d0*rnp !att. of Phy [1/(m*mmol P/m3)]
+                  1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_INI.F:120:15:
+
+         ACkw = 0.04d0 !attenuation of water [1/m]
+               1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:121:19:
+
+         AClambda = 0.03d0      !exudation rate [1/day]
+                   1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:123:18:
+
+         plambda = 0.01d0 !phytoplankton mortality
+                  1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:126:16:
+
+         ACmuzoo=1.893d0 !max. grazing rate [1/d]
+                1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:127:15:
+
+         ACkphy=SQRT(ACmuzoo/1.0d0)/rnp !zoo half-saturation constant [mmol P]
+               1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_INI.F:128:18:
+
+         AClambdaz=0.03d0 !zooplankton excretion [1/d]
+                  1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:129:16:
+
+         AComniz=4.548d0 !zooplankton mortality [m3/(mmol P * day)]
+                1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:131:16:
+
+         zlambda=0.01d0 !zooplankton mortality
+                1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:134:20:
+
+         graztodop = 0.15d0 ! fraction grazing that goes into DOP
+                    1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:135:19:
+
+         dlambda  = 0.17d0/360.0d0 !DOP remineralization rate [1/day]  (SLOW recycling)
+                   1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:138:17:
+
+         alimit = 1.0d-3
+                 1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:141:20:
+
+         detlambda = 0.05d0 !detritus remineralisation rate [1/d]
+                    1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:142:20:
+
+         detmartin = 0.8580d0 ! Exponent for Martin curve
+                    1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:145:22:
+
+         burdige_fac = 1.6828d0 ! factor for sediment burial (see Kriest and Oschlies, 2013)
+                      1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:146:22:
+
+         burdige_exp = 0.799d0  ! exponent for sediment burial (see Kriest and Oschlies, 2013)
+                      1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+BGC_INI.F:154:18:
+
+         rhno3ut = 0.8d0*ro2ut - rnp ! -HNO3:P ratio for denitrification
+                  1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+BGC_INI.F:162:18:
+
+         wdet(k) = detwb + (bgc_zu(k)+bgc_zu(k+1))*0.5d0*detwa
+                  1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpif90 -c -fPIC  -Wall -Wno-unused-variable -ffree-line-length-0 -Wno-unused-dummy-argument -O  -fdefault-real-8 -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS -o CAR_CHEM.o CAR_CHEM.F
+f951: Warning: Nonconforming tab character in column 2 of line 34 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 162 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 178 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 322 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 2 of line 362 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 6 of line 370 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 6 of line 373 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 6 of line 383 [-Wtabs]
+CAR_CHEM.F:126:7:
+
+      &      (-106.736d0*invtk + 0.69171d0)*sqrts +
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:127:7:
+
+      &      (-0.65643d0*invtk - 0.01844d0)*s)
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:134:7:
+
+      &      (-160.340d0*invtk + 1.3566d0)*sqrts +
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:135:7:
+
+      &      (0.37335d0*invtk - 0.05778d0)*s)
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:141:7:
+
+      &      (17.27039d0*invtk + 2.81197d0) *
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:142:7:
+
+      &      sqrts + (-44.99486d0*invtk - 0.09984d0) * s)
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:150:7:
+
+      &      (-458.79d0*invtk + 3.5913d0) * sqrtis +
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:151:7:
+
+      &      (188.74d0*invtk - 1.5998d0) * is +
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:152:7:
+
+      &      (-12.1652d0*invtk + 0.07871d0) * is2 +
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:153:7:
+
+      &      log(1.d0-0.001005d0*s))
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:160:7:
+
+      &      (118.67d0*invtk - 5.977d0 + 1.0495d0 * dlogtk) *
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:161:7:
+
+      &      sqrts - 0.01615d0 * s)
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:169:7:
+
+      &      (-13856.d0*invtk + 324.57d0 - 47.986d0*dlogtk)*sqrtis +
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:170:10:
+
+      &     (35474.d0*invtk - 771.54d0 + 114.723d0*dlogtk)*is -
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:171:9:
+
+      &    2698.d0*invtk*is**1.5d0 + 1776.d0*invtk*is2 +
+         1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:172:7:
+
+      &      log(1.d0 - 0.001005d0*s))
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:179:7:
+
+      &      log(1.d0 - 0.001005d0*s))
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:186:7:
+
+      &      1.728d0*s15 - 0.0996d0*s2)*invtk +
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:187:9:
+
+      &    (148.0248d0 + 137.1942d0*sqrts + 1.62142d0*s) +
+         1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:188:9:
+
+      &    (-24.4344d0 - 25.085d0*sqrts - 0.2474d0*s) *
+         1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:189:9:
+
+      &    dlogtk + 0.053105d0*sqrts*tk +
+         1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:249:7:
+
+      &  - scar4*ttemp*ttemp*ttemp
+       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+CAR_CHEM.F:75:13:
+
+         tk = 273.15d0 + t
+             1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:76:16:
+
+         tk100 = tk/100.0d0
+                1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:78:14:
+
+         invtk=1.0d0/tk
+              1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:81:11:
+
+         is=19.924d0*s/(1000.d0-1.005d0*s)
+           1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:86:12:
+
+         s15=s**1.5d0
+            1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:87:12:
+
+         scl=s/1.80655d0
+            1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:91:16:
+
+         bt(i) = 0.000232d0 * scl/10.811d0
+                1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:92:16:
+
+         st(i) = 0.14d0 * scl/96.062d0
+                1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:93:16:
+
+         ft(i) = 0.000067d0 * scl/18.9984d0
+                1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:98:16:
+
+         ff(i) = exp(-162.8301d0 + 218.2968d0/tk100  +
+                1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:105:17:
+
+         ak0(i) = exp(93.4517d0/tk100 - 60.2409d0 +
+                 1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:115:15:
+
+         ak1(i)=10**(-1.d0*(3670.7d0*invtk -
+               1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:118:15:
+
+         ak2(i)=10**(-1.d0*(1394.7d0*invtk + 4.777d0 -
+               1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:124:20:
+
+      ak1p(i) = exp(-4576.752d0*invtk + 115.540d0 -
+                    1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:132:18:
+
+         ak2p(i) = exp(-8814.715d0*invtk + 172.1033d0 -
+                  1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:140:20:
+
+      ak3p(i) = exp(-3070.75d0*invtk - 18.126d0 +
+                    1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:148:18:
+
+         aksi(i) = exp(-8904.2d0*invtk + 117.400d0 -
+                  1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:158:17:
+
+         akw(i) = exp(-13847.26d0*invtk + 148.9802d0 -
+                 1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:167:15:
+
+         aks(i)=exp(-4276.1d0*invtk + 141.328d0 -
+               1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:178:15:
+
+         akf(i)=exp(1590.2d0*invtk - 12.641d0 + 1.525d0*sqrtis +
+               1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:185:15:
+
+         akb(i)=exp( (-8966.90d0 - 2890.53d0*sqrts - 77.942d0*s +
+               1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:251:15:
+
+       KWexch = vgas660/sqrt(SchmidtNoCO2/660.0d0)
+               1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:350:15:
+
+       hguess = 10.d0**(-phguess)
+               1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:363:12:
+
+       cag = ta - bohg - (kwlocal/hguess) + hguess
+            1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:369:14:
+
+       stuff = (1.d0-gamm)*(1.d0-gamm)*k1local*k1local
+              1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:371:14:
+
+       hnew  = 0.5d0*( (gamm-1.d0)*k1local + sqrt(stuff) )
+              1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:374:14:
+
+       co2s  = dic/
+              1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_CHEM.F:273:15:
+
+       co2emp = dicgave*emp*86400.0d0
+               1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpif90 -c -fPIC  -Wall -Wno-unused-variable -ffree-line-length-0 -Wno-unused-dummy-argument -O  -fdefault-real-8 -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS -o CAR_INI.o CAR_INI.F
+f951: Warning: Nonconforming tab character in column 2 of line 34 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 6 of line 54 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 113 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 118 [-Wtabs]
+CAR_INI.F:74:16:
+
+       pCO2atm = 277.9514d0 !preindustrial value
+                1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+CAR_INI.F:78:13:
+
+       permil=1.d0/rho0
+             1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+CAR_INI.F:79:13:
+
+       permeg=1.d-6
+             1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+CAR_INI.F:85:14:
+
+       scar1 = 2073.1d0
+              1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+CAR_INI.F:86:14:
+
+       scar2 = 125.62d0
+              1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+CAR_INI.F:87:14:
+
+       scar3 = 3.6276d0
+              1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+CAR_INI.F:88:14:
+
+       scar4 = 0.043219d0
+              1
+Warning: Change of value in conversion from ‘REAL(16)’ to ‘REAL(8)’ at (1) [-Wconversion]
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpif90 -c -fPIC  -Wall -Wno-unused-variable -ffree-line-length-0 -Wno-unused-dummy-argument -O  -fdefault-real-8 -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS -o mops_biogeochem_ini.o mops_biogeochem_ini.F
+mops_biogeochem_ini.F:49:13:
+
+       bgc_dt=DeltaT/(86400.0d0*dble(numBiogeochemStepsPerOceanStep))
+             1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpif90 -c -fPIC  -Wall -Wno-unused-variable -ffree-line-length-0 -Wno-unused-dummy-argument -O  -fdefault-real-8 -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS -o mops_biogeochem_model.o mops_biogeochem_model.F
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpif90 -c -fPIC  -Wall -Wno-unused-variable -ffree-line-length-0 -Wno-unused-dummy-argument -O  -fdefault-real-8 -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS -o mops_biogeochem_diagnostics.o mops_biogeochem_diagnostics.F
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpif90 -c -fPIC  -Wall -Wno-unused-variable -ffree-line-length-0 -Wno-unused-dummy-argument -O  -fdefault-real-8 -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS -o mops_biogeochem_set_params.o mops_biogeochem_set_params.F
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpif90 -c -fPIC  -Wall -Wno-unused-variable -ffree-line-length-0 -Wno-unused-dummy-argument -O  -fdefault-real-8 -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS -o mops_biogeochem_misfit.o mops_biogeochem_misfit.F
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpif90 -c -fPIC  -Wall -Wno-unused-variable -ffree-line-length-0 -Wno-unused-dummy-argument -O  -fdefault-real-8 -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS -o mops_biogeochem_copy_data.o mops_biogeochem_copy_data.F
+f951: Warning: Nonconforming tab character in column 1 of line 93 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 94 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 103 [-Wtabs]
+f951: Warning: Nonconforming tab character in column 1 of line 104 [-Wtabs]
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpif90 -c -fPIC  -Wall -Wno-unused-variable -ffree-line-length-0 -Wno-unused-dummy-argument -O  -fdefault-real-8 -I/Users/orie3677/Software/petsc-3.6.2/include -I/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/include -I/opt/X11/include   -DASCIIPARAMS -o insolation.o insolation.F
+insolation.F:43:16:
+
+         dayfrac=mod(Time,daysperyear*86400.d0)
+                1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+insolation.F:54:14:
+
+           lat=YC(j)/180.d0*3.1416
+              1
+Warning: Possible change of value in conversion from REAL(16) to REAL(8) at (1) [-Wconversion]
+/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/bin/mpicc -Wl,-multiply_defined,suppress -Wl,-multiply_defined -Wl,suppress -Wl,-commons,use_dylibs -Wl,-search_paths_first -Wl,-multiply_defined,suppress -Wl,-multiply_defined -Wl,suppress -Wl,-commons,use_dylibs -Wl,-search_paths_first  -fPIC -Wall -Wwrite-strings -Wno-strict-aliasing -Wno-unknown-pragmas -O  -o mops tmm_main.o tmm_forward_step.o tmm_forcing_utils.o petsc_matvec_utils.o petsc_signal_utils.o external_forcing_mops_biogeochem.o tmm_external_bc.o tmm_monitor.o misfit_mops_biogeochem.o tmm_profile_utils.o tmm_timer.o BGC_MODEL.o BGC_INI.o CAR_CHEM.o CAR_INI.o mops_biogeochem_ini.o mops_biogeochem_model.o mops_biogeochem_diagnostics.o mops_biogeochem_set_params.o mops_biogeochem_misfit.o mops_biogeochem_copy_data.o insolation.o -Wl,-rpath,/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/lib -L/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/lib  -lpetsc -Wl,-rpath,/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/lib -lflapack -lfblas -Wl,-rpath,/opt/X11/lib -L/opt/X11/lib -lX11 -Wl,-rpath,/usr/local/lib/gcc/x86_64-apple-darwin15.6.0/7.1.0 -L/usr/local/lib/gcc/x86_64-apple-darwin15.6.0/7.1.0 -Wl,-rpath,/usr/local/lib -L/usr/local/lib -ldl -lmpifort -lgfortran -lquadmath -lm -Wl,-rpath,/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/lib -L/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/lib -Wl,-rpath,/usr/local/lib/gcc/x86_64-apple-darwin15.6.0/7.1.0 -L/usr/local/lib/gcc/x86_64-apple-darwin15.6.0/7.1.0 -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lmpi -lpmpi -lSystem -lgcc_ext.10.5 -Wl,-rpath,/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/lib -L/Users/orie3677/Software/petsc-3.6.2/arch-darwin-c-opt/lib -Wl,-rpath,/usr/local/lib/gcc/x86_64-apple-darwin15.6.0/7.1.0 -L/usr/local/lib/gcc/x86_64-apple-darwin15.6.0/7.1.0 -Wl,-rpath,/usr/local/lib -L/usr/local/lib -ldl 
+duplicate symbol _nTracersObs in:
+    external_forcing_mops_biogeochem.o
+    misfit_mops_biogeochem.o
+ld: 1 duplicate symbol for architecture x86_64
+collect2: error: ld returned 1 exit status
+make: [mops] Error 1 (ignored)
