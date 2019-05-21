@@ -1,3 +1,5 @@
+SOURCE: Prof. Simon Tett, University of Edinburgh
+
 file -- all python scripts *should* be internally documented. When I know how to use sphinx the quality might be better..
 Uses python 2.7 TODO update to python 3.6 which is largely a question of turning print "" into print("")
 comp_obs.py -- computes simulated observations as used in Tett et al, 2017
