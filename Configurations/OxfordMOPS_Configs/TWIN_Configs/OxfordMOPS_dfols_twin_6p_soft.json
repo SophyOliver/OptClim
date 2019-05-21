@@ -1,0 +1,214 @@
+{
+	"history": "JSON file for BOBYQA/DFOLS tests on MOPS model. example_dfols.json file copied and adjusted by Sophy Oliver 16-May-2018",
+	"svnInfo": "Revision: $Revision$ URL: $URL: https://svn.ecdf.ed.ac.uk/repo/geos/OptClim/trunk/Configurations/example.json $ Date: $Date$",
+	"svnInfo_comment": "Information automatically updated by SVN -- please don't edit",
+	"Developer_comment": "StudyConfig.py provides methods that work with this configuration file. Remember to change them if you change structure of this.",
+	"version": 2,
+	"version_comment": "Version ID",
+	"Name": "dfols_twin_6param_soft",
+	"Name_comment": "Study Name",
+	"baseRunID": "dfo",
+	"baseRunID_comment": "base for runID. Only first two characters are generally used.",
+	"runTime": 18000,
+	"runTime_comment": "Time in seconds for run. If null then default value will be used.",
+	"runCode": "devel",
+	"runCode_comment": "Project coce to run job under.",
+	"runUpgrade_vn3": "For vn3 put all runXXX stuff in a runInfo block.",
+	"Parameters": {
+		"comment": "Information relevant to parameters.",
+		"defaultParams": {
+			"comment": " All default parameters taken care of within MOPS ",
+			"ro2ut": 170.0,
+			"ACik": 24.00,
+			"ACkpo4": 0.03125,
+			"ACmuzoo": 2.00,
+			"AComniz": 3.20,
+			"detmartin": 0.858
+		},
+		"initParams": {
+			"comment": "Intial values for parameters to be optimised. For testing only optimising 2 MOPS parameters. Names don't matter, only index locations.",
+			"ro2ut": 156.0,
+			"ACik": 9.00,
+			"ACkpo4": 0.4,
+			"ACmuzoo": 1.20,
+			"AComniz": 7.20,
+			"detmartin": 1.6
+		},
+		"initScale": false,
+		"initScale_comment": "If true then startParams range from 0 to 1 where 0 means min value; 1 max value. MOPS does this internally.",
+		"fixedParams": {
+			"comment": " List of parameters and values that are fixed and not modified in optimisation. Set to null to use default values. Taken care of within MOPS."
+		},
+		"fixedScale": false,
+		"fixedScale_comment": "If true then scalable fixedParams range from 0 to 1 where 0 means min value; 1 max value.",
+		"minmax": {
+			"comment": "Defines the minimum and maximmum ranges for the parameters. Must be defined for ALL parameters used in GN optimisation,",
+			"ro2ut": [
+				150.0,
+				200.0
+			],
+			"ACik": [
+				4.0,
+				48.0
+			],
+			"ACkpo4": [
+				0.0001,
+				0.5
+			],
+			"ACmuzoo": [
+				0.1,
+				4.0
+			],
+			"AComniz": [
+				0.0,
+				10.0
+			],
+			"detmartin": [
+				0.4,
+				1.8
+			]
+		},
+		"steps": {
+			"comment": "Steps for perturbations -- norm around 10% of the range. If not specified 10% will be used. Values below have been somewhat tuned."
+		}
+	},
+	"study": {
+			"comment": "Parameters that specify the study. Used by framework and not by optimisation routines",
+			"referenceModelDirectory": "$OPTCLIMTOP/Configurations/OxfordMOPS_Configs/RunCode/twin6",
+			"referenceModelDirectory_comment": "Directory where reference model configuration exists. Default is START_DIR/start",
+			"covariance": {
+				"comment": "Covariance matrices and operations on them. If CovObsErr and CovIntVar are *both* specified then CovTotal will be computed from them",
+				"CovTotal": null,
+				"CovTotal_Comment": "Name of file containing Covariance Matrix for total Error.",
+				"CovTotalDiagonalise": false,
+				"CovTotalDiagonalise_comment": "If true diagonalise the total covariance matrix",
+				"CovIntVar": null,
+				"CovIntVar_Comment": "Name of file containing Covariance Matrix of Internal Variability",
+				"CovIntVarDiagonalise": false,
+				"CovIntVarDiagonalise_comment": "If true diagonalise the internal variability covariance matrix",
+				"CovObsErr": null,
+				"CovObsErr_Comment": "Name of file containing Covariance Matrix for Observational Error ",
+				"CovObsErrDiagonalise": false,
+				"CovObsErrDiagonalise_comment": "If true diagonalise the Observational Error covariance matrix"
+			},
+			"ObsList": ["mis1_PO4", "mis2_PO4", "mis3_PO4", "mis4_PO4", "mis5_PO4", "mis6_PO4", "mis7_PO4", "mis8_PO4", "mis9_PO4", "mis10_PO4",
+			            "mis11_PO4", "mis12_PO4", "mis13_PO4", "mis14_PO4", "mis15_PO4", "mis16_PO4", "mis17_PO4", "mis18_PO4", "mis19_PO4",
+			            "mis1_O2", "mis2_O2", "mis3_O2", "mis4_O2", "mis5_O2", "mis6_O2", "mis7_O2", "mis8_O2", "mis9_O2", "mis10_O2",
+			            "mis11_O2", "mis12_O2", "mis13_O2", "mis14_O2", "mis15_O2", "mis16_O2", "mis17_O2", "mis18_O2", "mis19_O2",
+			            "mis1_NO3", "mis2_NO3", "mis3_NO3", "mis4_NO3", "mis5_NO3", "mis6_NO3", "mis7_NO3", "mis8_NO3", "mis9_NO3", "mis10_NO3",
+			            "mis11_NO3", "mis12_NO3", "mis13_NO3", "mis14_NO3", "mis15_NO3", "mis16_NO3", "mis17_NO3", "mis18_NO3", "mis19_NO3"],
+			"ObsList_comment": "List of misfits that model produces for algorithm to minimise",
+			"constraintName": null,
+			"constraintName_comment": "Name of constraint variable -- target value defined by targets/constraintName. "
+		},
+	"optimise": {
+		"comment": "Parameters to control optimisation. This is used within DFOLS optimisation routines AND not by framework. Will need to be edited for BOBYQA",
+		"algorithm": "DFOLS",
+		"algorithm_comment": "Algorithm wanted Currently one of DFOLS or GAUSSNEWTON or BOBYQA.",
+		"growing.ndirs_initial": null,
+		"growing.ndirs_initial_comment": "the number of perturbations on first iteration. If not specified then will make Nparm perturbtions",
+		"rhobeg": 0.1,
+		"rhobeg_comment": "Radius of parameter trust region at start",
+		"rhoend": 1e-07,
+		"rhoend_comment": "Radius of paramter trust region for termination (for our purpose this is in normalised parameters)",
+		"maxfun": 30,
+		"maxfun_comment": "Maximum number of model evaluations to be done. Default is O(1000)",
+		"mu": null,
+		"mu_comment": "The inverse weighting given to the constraint -- it gets wt 1/(2mu). If Null then no constraint should be applied",
+		"DFOLS_namedSettings": {
+			"logging.save_poisedness": false,
+			"logging.save_poisedness_comment": "whether or not  to calculate geometry statistics as part of diagnostic information",
+			"init.random_initial_directions": true,
+			"init.random_initial_directions_comment": "If true perturb in random directions. If true perturb along co-ordinate axis.",
+			"noise.additive_noise_level": null,
+			"noise.additive_noise_level_comment": "Estimate of noise in cost function. Used in termintion -- nb cost fn is sum of squares **not** sum of squares/nObs",
+			"slow.history_for_slow": 2,
+			"slow.history_for_slow_comment": "No of past successful iterations to look at to decide if slow or not",
+			"slow.thresh_for_slow": 0.1,
+			"slow.thresh_for_slow_comment": "Log cost function  change for slow converegence",
+			"slow.max_slow_iters": 5,
+			"slow.max_slow_iters_comment": "The number of itertions (once slow determined) to decide making slow progress",
+			"restarts.use_restarts": true,
+			"restarts.use_restarts_comment": "Restart when slow convergence or too noisy",
+			"restarts.use_soft_restarts": true,
+			"restarts.use_soft_restarts_comment": "Use soft restart -- reuse some existing points when  restarting",
+			"restarts.soft.num_geom_steps": 3,
+			"restarts.soft.num_geom_steps_comment": "How many extra runs to be done when restarting",
+			"restarts.soft.move_xk": true,
+			"restarts.soft.move_xk_comment": "For soft restarts, whether to preserve 𝑥𝑘, or move it to the best new point evaluated. Default is True",
+			"restarts.increase_npt": false,
+			"restarts.increase_npt_comment": "Increase number of points when restarting",
+			"restarts.increase_npt_amt": 1,
+			"restarts.increase_npt_amt_comment": "Number of points to increase by in restarts.increase_npt set when restarting",
+			"restarts.hard.use_old_rk": true,
+			"restarts.hard.use_old_rk_comment": "If using hard restarts, whether or not to recycle the objective value at the best iterate found when performing a restart. This saves one objective evaluation. Default is True",
+			"restarts.max_unsuccessful_restarts": 10,
+			"restarts.max_unsuccessful_restarts_comment": "Number of consecutive restarts allowed when no progress made",
+			"restarts.hard.increase_ndirs_initial_amt": 1,
+			"restarts.hard.increase_ndirs_initial_amt_comment": "How many points to icnrease by  when doing hard restart (not using any exisiting pts)",
+			"restarts.max_npt": null,
+			"restarts.max_npt_comment": "Maximum number of points/model evals in each restart",
+			"tr_radius.gamma_dec": 0.98,
+			"tr_radius.alpha1": 0.9,
+			"tr_radius.alpha2": 0.95
+		},
+		"DFOLS_namedSettings_comment": "Settings for named parameters that get passed into dfols vis user_params",
+		
+		"BOBYQA_namedSettings": {
+			"logging.save_poisedness": false,
+			"logging.save_poisedness_comment": "whether or not  to calculate geometry statistics as part of diagnostic information",
+			"init.random_initial_directions": true,
+			"init.random_initial_directions_comment": "If true perturb in random directions. If true perturb along co-ordinate axis.",
+			"noise.additive_noise_level": null,
+			"noise.additive_noise_level_comment": "Estimate of noise in cost function. Used in termintion -- nb cost fn is sum of squares **not** sum of squares/nObs",
+			"slow.history_for_slow": 2,
+			"slow.history_for_slow_comment": "No of past successful iterations to look at to decide if slow or not",
+			"slow.thresh_for_slow": 0.1,
+			"slow.thresh_for_slow_comment": "Log cost function  change for slow converegence",
+			"slow.max_slow_iters": 5,
+			"slow.max_slow_iters_comment": "The number of itertions (once slow determined) to decide making slow progress",
+			"restarts.use_restarts": true,
+			"restarts.use_restarts_comment": "Restart when slow convergence or too noisy",
+			"restarts.use_soft_restarts": true,
+			"restarts.use_soft_restarts_comment": "Use soft restart -- reuse some existing points when  restarting",
+			"restarts.soft.num_geom_steps": 3,
+			"restarts.soft.num_geom_steps_comment": "How many extra runs to be done when restarting",
+			"restarts.hard.use_old_fk": true,
+			"restarts.hard.use_old_fk_comment": "If using hard restarts, whether or not to recycle the objective value at the best iterate found when performing a restart. This saves one objective evaluation. Default is True",
+			"restarts.max_unsuccessful_restarts": 10,
+			"restarts.max_unsuccessful_restarts_comment": "Number of consecutive restarts allowed when no progress made",
+			"tr_radius.gamma_dec": 0.98,
+			"tr_radius.alpha1": 0.9,
+			"tr_radius.alpha2": 0.95
+		},
+		"BOBYQA_namedSettings_comment": "Settings for named parameters that get passed into bobyqa via user_params"
+	},
+	"postProcess": {
+		"comment": "Options to control post processing. Details depend on your post processing script. No post processing necessary?",
+		"outputPath": "misfit_output.txt",
+		"outputPath_comment":cd  "output misfit value(s) created by the model for the algorithm to minimise"
+	},
+	"targets": {
+		"comment": "Observed targets for optimisation. Should include constraint value. Go until insignificant improvement?",
+		"mis1_PO4": 0.0, "mis2_PO4": 0.0, "mis3_PO4": 0.0, "mis4_PO4": 0.0, "mis5_PO4": 0.0, "mis6_PO4": 0.0, "mis7_PO4": 0.0,
+		"mis8_PO4": 0.0, "mis9_PO4": 0.0, "mis10_PO4": 0.0, "mis11_PO4": 0.0, "mis12_PO4": 0.0, "mis13_PO4": 0.0, "mis14_PO4": 0.0,
+		"mis15_PO4": 0.0, "mis16_PO4": 0.0, "mis17_PO4": 0.0, "mis18_PO4": 0.0, "mis19_PO4": 0.0,
+		"mis1_O2": 0.0, "mis2_O2": 0.0, "mis3_O2": 0.0, "mis4_O2": 0.0, "mis5_O2": 0.0, "mis6_O2": 0.0, "mis7_O2": 0.0,
+		"mis8_O2": 0.0, "mis9_O2": 0.0, "mis10_O2": 0.0, "mis11_O2": 0.0, "mis12_O2": 0.0, "mis13_O2": 0.0, "mis14_O2": 0.0,
+		"mis15_O2": 0.0, "mis16_O2": 0.0, "mis17_O2": 0.0, "mis18_O2": 0.0, "mis19_O2": 0.0,
+		"mis1_NO3": 0.0, "mis2_NO3": 0.0, "mis3_NO3": 0.0, "mis4_NO3": 0.0, "mis5_NO3": 0.0, "mis6_NO3": 0.0, "mis7_NO3": 0.0,
+		"mis8_NO3": 0.0, "mis9_NO3": 0.0, "mis10_NO3": 0.0, "mis11_NO3": 0.0, "mis12_NO3": 0.0, "mis13_NO3": 0.0, "mis14_NO3": 0.0,
+		"mis15_NO3": 0.0, "mis16_NO3": 0.0, "mis17_NO3": 0.0, "mis18_NO3": 0.0, "mis19_NO3": 0.0
+	},
+	"scalings": {
+		"comment": "Scalings on observables -- only defined when not 1.0. Done by MOPS!"
+	},
+	"simulatedObservations": {
+		"comment": "simulated observations -- dummy to be used when there is a model failure and it turns out to be unfixable. Made the netflux very large and the rsr_nhx large. This means that this model has high error.. None for MOPS"
+	},
+	"standardModel": {
+		"SimulatedValues": {
+			"comment": "Values from Initial Cond ensemble -- used for display. None for MOPS."
+		}
+	}
+}
