@@ -264,7 +264,16 @@ class OptClimConfig(dictFile):
         :param (optional default = False) add_constraint -- if True add the constraint name to the list of obs
         :return: a list  of observation names from the configuration files
         """
-        obs=self.Config['study']['ObsList'][:] # return a copy of the array.
+        obs=self.Config['study']['ObsList'] # return a copy of the array.
+                
+        # If only a number is provided, then create default obsNames of this length
+        if type(obs) is int:
+        	lengthObs = obs
+        	obs = ['obs{}'.format(i) for i in range(1, lengthObs+1)]
+        	obs = map(unicode,obs)
+        else:
+        	obs=self.Config['study']['ObsList'][:]
+        	
         if add_constraint:
             obs.append(self.constraintName())
 
@@ -411,8 +420,10 @@ class OptClimConfig(dictFile):
         :return: target values as a pandas series
         """
         if obsNames is None:  obsNames=self.obsNames()
-        tvalues = pd.Series([self.Config['targets'].get(k,np.nan) for k in obsNames], index=obsNames)
+        
+        tvalues = pd.Series([self.Config['targets'].get(k,0.0) for k in obsNames], index=obsNames)
         if scale: tvalues=tvalues*self.scales(obsNames=obsNames)
+        # get targets -- if not defined set to 0.
         return tvalues.rename(self.name())
 
     def constraintName(self):
