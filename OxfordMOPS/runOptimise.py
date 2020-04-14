@@ -28,7 +28,7 @@ import pandas as pd
 import subprocess
 import re
 import copy
-from OptClimVn2 import ModelSimulation, Optimise, StudyConfig
+from OptClimSO import ModelSimulation, Optimise, StudyConfig
 import Submit, MOPS
 import logging
 import dfols # optimisation ...
@@ -169,10 +169,11 @@ def optFunctionDFOLS(params):
 	# need to scale obs then project onto eigenvalues.
 	obs=pd.Series(obs) # TODO make getObs return pandas series.
 	#print "obs=pd.Series(obs) = ", obs
-	obs=obs*MODELRUN['scales'] # scale it
+	#obs=obs*MODELRUN['scales'] # scale it
 	#print "obs=obs*MODELRUN['scales'] = ", obs
-	resid=MODELRUN['target'] - obs # make it a residual
+	#resid=MODELRUN['target'] - obs # make it a residual
 	#print "resid=MODELRUN['target'] - obs = ", resid
+	resid=obs # in this case we have no scalings and the obs values are already residuals relative to a target
 	resid = resid.loc[MODELRUN['obsNames']] # order it consistently
 	#print "resid = resid.loc[MODELRUN['obsNames']] = ", resid
 
@@ -185,16 +186,16 @@ def optFunctionDFOLS(params):
 	#print "resid=MODELRUN['cov_diag_trans'].dot(resid) = ", resid
 	# and divide by root obs for comparability with earlier code.
 	#resid=resid/np.sqrt(len(obsNames))
-	for idx, r in enumerate(resid):
-		if r < 0:
-			resid[idx] = resid[idx] * -1
+	#for idx, r in enumerate(resid):
+	#	if r < 0:
+	#		resid[idx] = resid[idx] * -1
 			
 	#print "Input to DFOLS = ", resid
 	#print "Number of misfits to DFOLS = ", len(resid)
 	
 	sumSquare = 0
 	for r in resid:
-		sumSquare = sumSquare + (r*r)
+		sumSquare = sumSquare + (r*r) # for printing purposes only, as DFO-LS does this internally itself
 	#print "Sum-squared cost of all DFOLS inputs values = ", sumSquare
 
 
@@ -229,10 +230,11 @@ def optFunctionBOBYQA(params):
 	# need to scale obs then project onto eigenvalues.
 	obs=pd.Series(obs) # TODO make getObs return pandas series.
 	#print "obs=pd.Series(obs) = ", obs
-	obs=obs*MODELRUN['scales'] # scale it
+	#obs=obs*MODELRUN['scales'] # scale it
 	#print "obs=obs*MODELRUN['scales'] = ", obs
-	resid=MODELRUN['target'] - obs # make it a residual
+	#resid=MODELRUN['target'] - obs # make it a residual
 	#print "resid=MODELRUN['target'] - obs = ", resid
+	resid=obs # in this case we have no scalings and the obs values are already residuals relative to a target
 	resid = resid.loc[MODELRUN['obsNames']] # order it consistently
 	#print "resid = resid.loc[MODELRUN['obsNames']] = ", resid
 
@@ -245,9 +247,9 @@ def optFunctionBOBYQA(params):
 	#print "resid=MODELRUN['cov_diag_trans'].dot(resid) = ", resid
 	# and divide by root nobs for comparability with earlier code.
 	#resid=resid/np.sqrt(len(obsNames))
-	for idx, r in enumerate(resid):
-		if r < 0:
-			resid[idx] = resid[idx] * -1
+	#for idx, r in enumerate(resid):
+	#	if r < 0:
+	#		resid[idx] = resid[idx] * -1
 			
 	#print "resid = resid * -1 = ", resid
 	
@@ -292,7 +294,7 @@ def nextName(base='aa',start =0 ):
 finished = "False" # output to bash loop so it knows to stop
 
 # set up command line args
-modelFn=ModelSimulation # function for model cretion/read.
+#modelFn=ModelSimulation # function for model cretion/read.
 modelFn=MOPS.MOPS # function for model creation/read.
 #modelFn=ModelSimulation.ModelSimulation
 parser = argparse.ArgumentParser(description="Run study")
@@ -326,6 +328,7 @@ MODELRUN['scales']=config.scales() # get the scales.
 constraintName = config.constraintName()
 if constraintName is not None:
 	MODELRUN['scales'][constraintName]=1.0
+
 	
 # TODO consider changing all above so MODELRUN is an object with some sensible methods.
 refDir=config.referenceConfig() # get the reference configuration.
@@ -384,7 +387,7 @@ for d in modelDirs:
 		params=m.getParams(params=varParamNames, verbose=verbose)	
 		key=genKey(params.keys(),params.values(),fixParams,refDir) # Generate key. Note order is set my varParamNames.
 		if ((m.getObs() is None or None in m.getObs().values())) or (algorithmName != 'CMAES' and lend != 1 and (m.getParams() is None or None in m.getParams().values())) :
-			print "*** Model in %s has no observations so ignoring ****"%dir
+			print "*** Model in %s has no observations so ignoring, or if cmaes then will update later ****"%dir
 		else:
 			MODELRUN['modelRuns'][key]=m # store the model in modelRuns indexed by its key.
 
@@ -539,7 +542,7 @@ try:
 			with open('nIter.txt', 'r') as f:
 				lines = f.read().splitlines()
 				last_line = lines[-1]
-			nIter = int(last_line[0])
+			nIter = [int(s) for s in last_line.split() if s.isdigit()][0]
 			terminate = int(last_line[-1])
 			
 			# Check if need to run more models then run CMAES
@@ -658,12 +661,12 @@ except (np.linalg.LinAlgError, TypeError): #  error whch triggers need to run mo
 		constraintName=config.constraintName()
 		if constraintName is not None: obsNames.append(constraintName) # add constraint.
 			
-		if type(p) is str and p == "RUN_CMAES":
-			pDict = dict.fromkeys(MODELRUN['paramNames'])
-		else:
-			param=pd.Series(p,index=MODELRUN['paramNames']) # parameter values we want wrapped into  Series.
-			print("Param = ", param)
-			pDict=param.to_dict(into=collections.OrderedDict) # convert the dataframe to a dict.
+		#if type(p) is str and p == "RUN_CMAES":
+			#pDict = dict.fromkeys(MODELRUN['paramNames'])
+		#else:
+		param=pd.Series(p,index=MODELRUN['paramNames']) # parameter values we want wrapped into  Series.
+		print("Param = ", param)
+		pDict=param.to_dict(into=collections.OrderedDict) # convert the dataframe to a dict.
 				
 		pDict['RUNID']=name
 		pDict.update(fixParams) # add any fixed values in.

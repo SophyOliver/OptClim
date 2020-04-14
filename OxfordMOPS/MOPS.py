@@ -8,7 +8,7 @@ import pandas as pd
 import os
 
 
-from OptClimVn2 import ModelSimulation
+from OptClimSO import ModelSimulation
 
 class MOPS(ModelSimulation.ModelSimulation):
 	"""
@@ -147,13 +147,13 @@ class MOPS(ModelSimulation.ModelSimulation):
 		#To do: write text file and tests for this in test script
 		# same as misfit output
 		
-		# Edit with Simon if necessary:
-		# I got confused because wasn't sure where I was writing the parameters to so I hard coded it to parameters_input,txt?
-		paramFile = os.path.join(self.dirPath,'parameters_input.txt')
+		paramFile = os.path.join(self.dirPath,'parameters_input.txt') # file only for BOBYQA/DFOLS
 		paramNamesFile = os.path.join(self.dirPath,'parameters_names.txt')
 		num_bgc_params_file = os.path.join(self.dirPath,'num_bgc_params.txt')
 		#print(paramFile, params)
 		keys=params.keys();
+		
+		# write parameter names and number of params files
 		with open(paramNamesFile, "w") as text_file_names, open(num_bgc_params_file, "w") as num_params:
 			np = 0 # Count parameters
 			vals2write = 0 # Count parameter values specifically given
@@ -164,12 +164,14 @@ class MOPS(ModelSimulation.ModelSimulation):
 						vals2write = vals2write + 1
 					np = np + 1
 			num_params.write("%d\n"%np)
-		# Write out values as well if we have any
+			
+		# Write out parameter values to parameters_input.txt as well (if we have any! This should not happen if we use cmaes)
 		if vals2write > 0:
 			with open(paramFile, "w") as text_file_vals:
 				for k in keys:
 					if k != "RUNID":
-						text_file_vals.write("%.15f\n"%params[k])
+						if params[k] != "RUN_CMAES":
+							text_file_vals.write("%.15f\n"%params[k])
 	
 	def submit(self):
 		"""
