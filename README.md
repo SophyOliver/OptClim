@@ -1,5 +1,5 @@
 # OptClim
-OptClim code package to apply any optimiser to any climate model.
+OptClim code package to apply any optimiser to any climate model. See OptClim_UserGuide.pdf.
 
 OptClim (and the next version OptClimV2) was created and written by Professor Simon Tett, University of Edinburgh, and used in the optimisation studies Tett et al. (2013) and Tett et al. (2017). In 2018 OptClimV2 was edited by Sophy Oliver, University of Oxford, to the version OptClimSO.
 
