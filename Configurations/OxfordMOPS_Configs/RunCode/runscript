@@ -19,9 +19,9 @@
 
 # Step 2. Copy necessary files to run the model e.g.
 # Create a soft link to all the large files (e.g. initial conditions, transport matrices, etc) so that you don't use up all your storage space during one optimisation
-ln -s $OPTCLIM/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Files/* .
+ln -s $MODEL_FILE_LOCATION/Files/* .
 # Create a hard copy of the model code (already compiled) as these shouldn't be large files.
-cp -p $OPTCLIM/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/* .
+cp -p $MODEL_CODE_LOCATION/Code/* .
 # If the files take a while to copy, give this time to finish copying the files over before your runscript goes on to run the model, e.g.
 sleep 300
 
