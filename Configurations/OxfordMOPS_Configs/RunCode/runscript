@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This is your "black box" model.
-# If this runscript script (and a prepJob script) were to be placed in a brand new, empty folder, then it should be able
+# If this runscript script were to be placed in a brand new, empty folder, then it should be able
 # to be run (or submitted to computing cluster) and successfully complete one full evalutation of
 # the black box model, by (1) containing cluster-specific commands for job submission, 
 # (2) copying all the necessary files into the folder, (3) loading all necessary 
@@ -13,17 +13,23 @@
 #SBATCH --ntasks-per-node=16
 #SBATCH --time=20:00:00
 
-# Step 2. Copy necessary files to run the model e.g. call prepJob script
-./prepJob
+# Step 2. Copy necessary files to run the model e.g.
+# Create a soft link to all the large files (e.g. initial conditions, transport matrices, etc) so that you don't use up all your storage space during one optimisation
+ln -s $OPTCLIM/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Files/* .
+# Create a hard copy of the model code (already compiled) as these shouldn't be large files.
+cp -p $OPTCLIM/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/* .
+# If the files take a while to copy, give this time to finish copying the files over before your runscript goes on to run the model, e.g.
+sleep 300
 
 # Step 3. Load any necessary modules needed for the model
 
-# ************ Run the model and calculate misfit ************
-
 # Step 4: Read in "parameters_input.txt" (which optclim will write in every iteration of the optimisation) and set those parameter values in the model
+
 # Step 5: Run the model with those specified parameter values
+
 # Step 6: From the model outputs, calculate your misfits
-# Step 7: Write out "misfits_output.txt" (which optclim will then read in every iteration of the optimisation)
+
+# Step 7: Write out "misfit_output.txt" (which optclim will then read in every iteration of the optimisation)
 
 # Example model run for MOPS:
 
