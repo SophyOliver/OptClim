@@ -1,0 +1,29 @@
+Load necessary packages needed for the python optclim package
+
+To use this version of OptClim use Python2.7, and load the packages pandas, numpy, scipy and netCDF4
+
+When running on a supercomputing cluster, you can create a conda environment, load the necessary python packages into it,
+save the environment, then load it later just before calling optclim (this saves having to load the packages every time).
+
+e.g. On the ARC supercomputing cluster, Oxford University (https://www.arc.ox.ac.uk/using-python-arc)
+
+# Create environment (you only need to do this once)
+module load python/anaconda2/5.0.1
+export CONPREFIX=$DATA/myenv
+mkdir $CONPREFIX
+conda create --prefix $CONPREFIX --copy python=2.7
+source activate $CONPREFIX
+
+# Load packages to environment (you only need to do this once)
+pip install pandas
+pip install numpy
+pip install scipy
+pip install netCDF4==1.4.0
+
+# Deactivate environment
+source deactivate
+
+# Load it later when ready to run optclim
+module load python/anaconda2/5.0.1
+source activate $DATA/myenv
+
