@@ -1,26 +1,29 @@
 #!/bin/bash
 
-# Computing cluster job submission commands
+# This is your "black box" model.
+# If this runscript script (and a prepJob script) were to be placed in a brand new, empty folder, then it should be able
+# to be run (or submitted to computing cluster) and successfully complete one full evalutation of
+# the black box model, by (1) containing cluster-specific commands for job submission, 
+# (2) copying all the necessary files into the folder, (3) loading all necessary 
+# modules/packages, (4) reading in a list of parameter values to set in the module, (5) running the model,
+# (6) calculating the misfit between the model output and observations, and (7) writing a list of misfit values.
+
+# Step 1. Computing cluster job submission commands. e.g.
 #SBATCH --nodes=6
 #SBATCH --ntasks-per-node=16
 #SBATCH --time=20:00:00
 
-# Call prepJob to copy necessary files to run the model
+# Step 2. Copy necessary files to run the model e.g. call prepJob script
 ./prepJob
 
-# Load any necessary modules needed for the model
-
-# Load necessary packages needed for the python optclim package
-# This can be done by previously creating a conda environment and loading the necessary python packages into this, saving the environment, then loading it here below
-# See UserGuide.pdf on how to do this
-module load python/anaconda2/5.0.1
-source activate $DATA/myenvironment
+# Step 3. Load any necessary modules needed for the model
 
 # ************ Run the model and calculate misfit ************
 
-# Step 1: Read in "parameters_input.txt" (which optclim will write in every iteration of the optimisation) and set those parameter values in the model
-# Step 2: Run the model with those specified parameter values
-# Step 3: From the model outputs, calculate your misfits and write out "misfits_output.txt" (which optclim will then read in every iteration of the optimisation)
+# Step 4: Read in "parameters_input.txt" (which optclim will write in every iteration of the optimisation) and set those parameter values in the model
+# Step 5: Run the model with those specified parameter values
+# Step 6: From the model outputs, calculate your misfits
+# Step 7: Write out "misfits_output.txt" (which optclim will then read in every iteration of the optimisation)
 
 # Example model run for MOPS:
 
