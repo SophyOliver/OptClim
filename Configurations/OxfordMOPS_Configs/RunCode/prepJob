@@ -1,4 +1,11 @@
 
-ln -s $OPTCLIMTOP/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Files/* .
-cp -p $OPTCLIMTOP/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/* .
+# This script should copy all the necessary files and code needed to run your model into the same place where your runscript is.
+
+# Create a soft link to all the large files (e.g. initial conditions, transport matrices, etc) so that you don't use up all your storage space during one optimisation
+ln -s $OPTCLIM/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Files/* .
+
+# Create a hard copy of the model code (already compiled) as these shouldn't be large files.
+cp -p $OPTCLIM/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/* .
+
+# If the files take a while to copy, give your prepJob script time to finish copying the files over before your runscript goes on to run the model
 sleep 300
