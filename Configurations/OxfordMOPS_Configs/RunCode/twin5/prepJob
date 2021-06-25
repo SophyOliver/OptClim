@@ -1,4 +1,0 @@
-
-ln -s $OPTCLIMTOP/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Files/* .
-cp -p $OPTCLIMTOP/Configurations/OxfordMOPS_Configs/ReadOnlyFiles/Code/* .
-sleep 300
