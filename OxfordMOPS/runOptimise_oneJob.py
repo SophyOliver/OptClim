@@ -695,7 +695,7 @@ except (np.linalg.LinAlgError, TypeError): #  error whch triggers need to run mo
 		else: # really submit!
 		
 			# As OptClimSO has been changed to run everything as one large job, this arcSubmit is actually the same as testRun submit above.
-			status=Submit_dfo.arcSubmit(submitModels,config,rootDir,verbose=verbose,
+			status=Submit_dfo.arcSubmit_oneJob(submitModels,config,rootDir,verbose=verbose,
 									resubmit=restartCMD, runCode=runCode) # submit the models
 
 		# models submitted check all worked.. Note there is a race condition in that the models get submitted before the dict
