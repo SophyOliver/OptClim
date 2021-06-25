@@ -176,6 +176,50 @@ def arcSubmit(model_list, config,rootDir, verbose=False,  resubmit=None, runCode
 	This algorithm is not particularly robust to failure -- if anything fails the various jobs will be sitting around
 	Releasing them will be quite tricky! You can always kill and run again!
 	"""
+	jobID = []
+	for model in model_list:
+		# put some dummy data in the ouput file
+		modelSubmitName=model.submit()
+		if verbose: print "Submitting ",modelSubmitName
+		with cd(model.dirPath):
+			jID = subprocess.check_output("sbatch -J %s --export=ALL %s" % (model.name(), modelSubmitName), shell=True) # submit the script (change devel after, and shouldn't have to ssh in)
+		jobID.append(jID[20:-1])
+		
+	jobIDstr=':$'.join(jobID) # make single string appropriately formatted of job ids..
+	# now re-run this entire script so that the next iteration in the algorithm.
+	# can be run
+	if resubmit is not None:
+		# Submit the next job in the iteration. runOptimise is very quick so no need to submit to ARC again - just run on the front end.
+		
+		jobName='RE'+config.name()
+		# TODO move to better python syntax for var printing. Think can use named vars in...
+		cmd = ["sbatch -p devel --export=ALL --time=10 --dependency=afterany:%s -J %s "%(jobIDstr,jobName)]
+		cmd.extend(resubmit) # add the arguments in including the programme to run..
+		#cmd = resubmit
+		cmd=' '.join(cmd) # convert to one string.
+		cmd = cmd + " &>progressResubmit.txt"
+		if verbose: print "Next iteration cmd is ", cmd
+		jid = subprocess.check_output(cmd, shell=True) # submit the script. Good to remove shell=True 
+		#subprocess.check_output(cmd, shell=True)
+		if verbose: print "Job ID for next iteration is %s"%jid[20:-1]
+
+	return True
+
+def arcSubmit_oneJob(model_list, config,rootDir, verbose=False,  resubmit=None, runCode=None):
+	"""
+	Run model on the front end.
+	:param model_list: a list of model configuration to submit
+	:param config: study configuration file
+	:param rootDir: root directory where files etc are to be created and found
+	:param args -- the arguments that the main script was called with.
+	:param resubmit -- default None. If not None next iteration cmd to be submitted. 
+		Normally should be the script the user ran so next stage of model running happens.
+	:param runCode -- default None, If not none specifies the project code.
+	:return: status of submission
+
+	This algorithm is not particularly robust to failure -- if anything fails the various jobs will be sitting around
+	Releasing them will be quite tricky! You can always kill and run again!
+	"""
 	
 	#jobID = []
 	for model in model_list:
@@ -184,26 +228,6 @@ def arcSubmit(model_list, config,rootDir, verbose=False,  resubmit=None, runCode
 		if verbose: print "Submitting ",modelSubmitName
 		with cd(model.dirPath):
 			subprocess.check_output(modelSubmitName, shell=True) # submit the script
-			#jID = subprocess.check_output("sbatch -J %s --export=ALL %s" % (model.name(), modelSubmitName), shell=True) # submit the script (change devel after, and shouldn't have to ssh in)
-		#jobID.append(jID[20:-1])
-		
-#	#jobIDstr=':$'.join(jobID) # make single string appropriately formatted of job ids..
-#	# now re-run this entire script so that the next iteration in the algorithm.
-#	# can be run
-#	if resubmit is not None:
-#		# Submit the next job in the iteration. runOptimise is very quick so no need to submit to ARC again - just run on the front end.
-#		
-#		jobName='RE'+config.name()
-#		# TODO move to better python syntax for var printing. Think can use named vars in...
-#		#cmd = ["sbatch -p devel --export=ALL --time=10 --dependency=afterany:%s -J %s "%(jobIDstr,jobName)]
-#		#cmd.extend(resubmit) # add the arguments in including the programme to run..
-#		cmd = resubmit
-#		cmd=' '.join(cmd) # convert to one string.
-#		#cmd = cmd + " &>progressResubmit.txt"
-#		if verbose: print "Next iteration cmd is ", cmd
-#		#jid = subprocess.check_output(cmd, shell=True) # submit the script. Good to remove shell=True 
-#		subprocess.check_output(cmd, shell=True)
-#		#if verbose: print "Job ID for next iteration is %s"%jid[20:-1]
 
 	return True
 
