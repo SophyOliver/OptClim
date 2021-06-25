@@ -8,6 +8,10 @@
 # modules/packages, (4) reading in a list of parameter values to set in the module, (5) running the model,
 # (6) calculating the misfit between the model output and observations, and (7) writing a list of misfit values.
 
+# If applying the optimiser CMA-ES, then this "black box" runscript should run your model lambda times (lambda = population size chosen for cma-es)
+# It should read in parameters_inputs_X.txt and write misfit_output_X.txt, where X=1...lambda.
+# This can be done as a job array on most clusters
+
 # Step 1. Computing cluster job submission commands. e.g.
 #SBATCH --nodes=6
 #SBATCH --ntasks-per-node=16
